@@ -26,13 +26,16 @@ func Factorial(n Count) Count {
 // 0!...(m) = 1
 // n!...(m) = 0 if m = 0 or n < m
 func Multifactorial(n, m Count) Count {
-	if m == 0 || n < m {
+	if m == 0 {
 		return 0
 	}
-	var p Count = 1
+	if n == 0 {
+		return 1
+	}
+	p := n
 	for m <= n {
-		p *= n
 		n -= m
+		p *= n
 	}
 	return p
 }
