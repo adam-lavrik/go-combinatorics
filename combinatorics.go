@@ -33,7 +33,7 @@ func Multifactorial(n, m Count) Count {
 		return 1
 	}
 	p := n
-	for m <= n {
+	for m < n {
 		n -= m
 		p *= n
 	}
