@@ -80,7 +80,7 @@ func CCount(n, m Count) Count {
 // Cr(n, m) = C(n + m - 1, m)
 // Cr(0, 0) = 0
 func CrCount(n, m Count) Count {
-	if n|m == 0 {
+	if n | m == 0 {
 		return 0
 	}
 	return dividedProduct(n, n + m - 1)
