@@ -24,7 +24,7 @@ func Factorial(n Count) Count {
 // Multifactorial returns multifactorial
 // n!...(m) = n * (n - m) * (n - 2m) * ... (while (n - km) > 0)
 // 0!...(m) = 1
-// n!...(m) = 0 if m = 0 or n < m
+// n!...(m) = 0 if m = 0
 func Multifactorial(n, m Count) Count {
 	if m == 0 {
 		return 0
