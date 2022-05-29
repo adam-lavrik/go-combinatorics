@@ -21,6 +21,29 @@ func Factorial(n Count) Count {
 	return product(2, n)
 }
 
+// Subfactorial returns subfactorial
+// !n = n! / 0! - n! / 1! + n! / 2! - ... +\- n! / (n - 1)! -\+ 1
+func Subfactorial(n Count) Count {
+	// s0 = 1 + n * (n - 1) + n * (n - 1) * (n - 2) * (n - 3) + ...
+	// s1 = n + n * (n - 1) * (n - 2) + ...
+	// !n = s0 - s1 if n is even or s1 - s0 if n is odd.
+	var p, s0, s1 Count = 1, 1, 0
+	for {
+		if n == 0 {
+			return s0 - s1
+		}
+		p *= n
+		s1 += p
+		n--
+		if n == 0 {
+			return s1 - s0
+		}
+		p *= n
+		s0 += p
+		n--
+	}
+}
+
 // Multifactorial returns multifactorial
 // n!...(m) = n * (n - m) * (n - 2m) * ... (while (n - km) > 0)
 // 0!...(m) = 1
@@ -36,6 +59,22 @@ func Multifactorial(n, m Count) Count {
 	for m < n {
 		n -= m
 		p *= n
+	}
+	return p
+}
+
+// RisingFactorial returns rising factorial
+// n!^m = n * (n + 1) * ... * (n + m - 1)
+// 0!^0 = 0
+func RisingFactorial(n, m Count) Count {
+	if n | m == 0 {
+		return 0
+	}
+	var p Count = 1
+	m += n
+	for m > 1 {
+		m--
+		p *= m
 	}
 	return p
 }
