@@ -80,16 +80,10 @@ func Multifactorial(n, m Count) Count {
 // n!^m = n * (n + 1) * ... * (n + m - 1)
 // 0!^0 = 0
 func RisingFactorial(n, m Count) Count {
-	if n | m == 0 {
-		return 0
+	if n == 0 {
+		return 1
 	}
-	var p Count = 1
-	m += n
-	for m > 1 {
-		m--
-		p *= m
-	}
-	return p
+	return product(n, n + m - 1)
 }
 
 // PCount returns number of permutations without repetitions
