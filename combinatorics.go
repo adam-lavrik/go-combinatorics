@@ -44,6 +44,19 @@ func Subfactorial(n Count) Count {
 	}
 }
 
+// Superfactorial returns superfactorial
+// sf(n) = 1! * 2! * ... * n!
+// sf(0) = 1
+func Superfactorial(n Count) Count {
+    var i, p, pp Count = 1, 1, 1
+    for i < n {
+        i++
+        p *= i
+        pp *= p
+    }
+    return pp
+}
+
 // Multifactorial returns multifactorial
 // n!...(m) = n * (n - m) * (n - 2m) * ... (while (n - km) > 0)
 // 0!...(m) = 1
